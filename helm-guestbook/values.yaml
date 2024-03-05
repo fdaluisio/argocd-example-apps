@@ -5,9 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/heptio-images/ks-guestbook-demo
+  repository: docker.io/fdaluisio/ks-guestbook-demo
   tag: 0.1
-  pullPolicy: IfNotPresent
+  pullPolicy: ifNotPresent
+  serviceAccountName: guestbook-sa
 
 containerPort: 80
 
