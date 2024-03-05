@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: guestbook-ui
+  namespace: stage
 spec:
   replicas: 1
   revisionHistoryLimit: 3
@@ -13,8 +14,9 @@ spec:
       labels:
         app: guestbook-ui
     spec:
+      serviceAccountName: guestbook-sa
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - image: docker.io/fdaluisio/ks-guestbook-demo:0.1
         name: guestbook-ui
         ports:
         - containerPort: 80
